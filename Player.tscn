@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://lsmhro8e3pof"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kqby4"]
+[ext_resource type="Texture2D" uid="uid://c3nvqgsbwhv3a" path="res://Sprites/Characters/character_0004.png" id="2_clwjk"]
+[ext_resource type="Texture2D" uid="uid://duxytkno1xu27" path="res://smokey bacon.png" id="3_4twxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po3ek"]
+size = Vector2(16, 24)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nhdaj"]
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(1, -26)
+script = ExtResource("1_kqby4")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_clwjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_po3ek")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -11)
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreText" type="Label" parent="CanvasLayer"]
+offset_left = 27.0
+offset_top = 16.0
+offset_right = 207.0
+offset_bottom = 86.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_nhdaj")
+
+[node name="SmokeyBacon" type="Sprite2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_4twxn")
